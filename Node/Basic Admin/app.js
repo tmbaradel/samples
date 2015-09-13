@@ -114,14 +114,9 @@ app.use(function (req, res, next) {
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/status'));
 app.use('/v1/auth', require('./routes/v1/auth'));
-app.use('/v1/config', require('./routes/v1/config'));
-app.use('/v1/contents', require('./routes/v1/contents'));
 app.use('/v1/user', require('./routes/v1/user'));
 
-// --------------------------------------------------------------------------
-// Admin Routes
-app.use('/admin/contents', require('./routes/admin/contents'));
-app.use('/admin/docs', require('./routes/admin/docs'));
+
 app.use('/admin/users', require('./routes/admin/users'));
 
 // --------------------------------------------------------------------------
