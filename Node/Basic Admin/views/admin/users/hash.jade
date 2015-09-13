@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  h1 Generate Hash
+
+  form(method='post')
+    .form-group
+      label Password
+      input.form-control(type='password', name='password')
+
+    .form-group
+      button.btn.btn-primary(type='submit') Generate
+
+  if newHash
+    p=newHash

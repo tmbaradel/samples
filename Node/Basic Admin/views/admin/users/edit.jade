@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+  h1
+    if user.isNew
+      | New user
+    else
+      | Edit user: #{user.email}
+  if error
+    div.alert.alert-danger=error
+
+  form(method='post')
+    .form-group
+      label(for='f_email') Email
+      input#f_email.form-control(name='email', type='text', value=user.email, required)
+      hr
+    .form-group
+      label(for='f_password') Password
+      input#f_password.form-control(name='password', type='password' )
+      br
+      label(for='f_confirm_password') Confirm Password
+      input#f_confirm_password.form-control(name='confirm_password', type='password' )
+      .form-group
+        label(for='f_group') Groups
+        br
+        each group,index in usergroups
+          if(index > 0)
+            | &nbsp;&nbsp;
+          | #{helpers.ucFirst(group)}
+          input(
+            type='checkbox'
+            name='groups'
+            value=group
+            checked=helpers.valueInArray(user.groups, group)
+          )
+    .form-group
+      button.btn.btn-primary(type='submit')
+        if user.isNew
+          | Save user
+        else
+          | Update user

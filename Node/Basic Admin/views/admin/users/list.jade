@@ -1,0 +1,58 @@
+extends ../layout
+
+block content
+  h1 Users
+  hr
+  a(href='users/create', class='btn btn-primary btn-sm') Create new user
+  form(method='get', class='form-inline search')
+    .form-group
+      input(class='form-control', type='text', name='search', placeholder='User email' )
+      button(class='btn btn-primary') Search
+
+  hr
+  - var searchGet = ''
+  - var orderGet = ''
+  if searchText
+    h2 Searched for: &nbsp;#{searchText}
+    - searchGet = '&search='+searchText
+    hr
+  if orderBy
+    - orderGet = '&order='+orderBy
+  table(class='table table-striped')
+    thead
+      th
+        a(href='/admin/users/?order=id&page=#{currentPage}#{searchGet}') ID
+      th
+        a(href='/admin/users/?order=email&page=#{currentPage}#{searchGet}') Email
+      th
+        a(href='/admin/users/?order=groups&page=#{currentPage}#{searchGet}') Groups
+      th
+        a(href='/admin/users/?order=status&page=#{currentPage}#{searchGet}') Status
+      th Actions
+    tbody
+      each user in users
+        tr
+          td
+            a(href="/admin/users/#{user._id}")=user._id
+          td=user.email
+          td=user.groups.join(', ')
+          td
+            if user.optin.email_confirmed
+              span.label.label-success Email confirmed
+            else if user.optin.token
+              span.label.label-warning Pending confirmation
+          td
+            if user.groups.indexOf('admin') === -1
+              a(href='/?auth_token=#{user.auth_token}', class='btn btn-sm btn-default', target='_blank') Impersonate
+              | &nbsp;
+            form(method='post', class='inline-block', action="/admin/users/#{user._id}/delete", onsubmit='return confirm("Are you sure?");')
+              input(type='submit', class='btn btn-sm btn-danger', value='Delete')
+
+  if pages > 1
+    div.navigation
+      ul.pagination
+        - var n = 0
+          while n < pages
+            li(class=(currentPage == n) ? 'active' : '')
+              a(href='/admin/users/?page=#{n}#{searchGet}#{orderGet}')= n+1
+              - n++

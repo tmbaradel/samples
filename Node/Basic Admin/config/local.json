@@ -1,0 +1,12 @@
+{
+  "host": "http://local-api.sample.io/",
+  "webhost": "https://local-www.sample.io/",
+  "interface": "0.0.0.0",
+  "password_salt": "$2a$10$LR3B/4Z9aYrQdz8wMrpF7u",
+  "session_secret": "f789%%yae87ft",
+  "database_url": "mongodb://localhost:27017/sample",
+  "cache_expiration": {
+    "protocol_pages_in_seconds": 300
+  },
+  "tmp_upload_folder": "/tmp/"
+}

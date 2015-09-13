@@ -1,0 +1,164 @@
+[
+  {
+    "locale": "en_US",
+    "name": "English (US)",
+    "selectable": true,
+    "direction": "ltr"
+  },
+  {
+    "locale": "en_GB",
+    "name": "English (UK)",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "ar_001",
+    "name": "Arabic (World)",
+    "selectable": true,
+    "direction": "rtl"
+  },
+  {
+    "locale": "bg_BG",
+    "name": "Bulgarian",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "cs_CZ",
+    "name": "Czech",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "de_DE",
+    "name": "German",
+    "selectable": true,
+    "direction": "ltr"
+  },
+  {
+    "locale": "es_419",
+    "name": "Spanish (Latin American)",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "es_ES",
+    "name": "Spanish (Castilian)",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "es_MX",
+    "name": "Spanish (Mexico)",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "fr_BE",
+    "name": "French (Belgium)",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "fr_CA",
+    "name": "French (Canadian)",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "fr_FR",
+    "name": "French",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "he_IL",
+    "name": "Hebrew (Israel)",
+    "selectable": true,
+    "direction": "rtl"
+  },
+  {
+    "locale": "hu_HU",
+    "name": "Hungarian",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "it_IT",
+    "name": "Italian",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "ko_KR",
+    "name": "Korean",
+    "selectable": true,
+    "direction": "ltr"
+  },
+  {
+    "locale": "ja_JP",
+    "name": "Japanese",
+    "selectable": true,
+    "direction": "ltr"
+  },
+  {
+    "locale": "lt_LT",
+    "name": "Lithuanian",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "ms_MY",
+    "name": "Malay (Malaysia)",
+    "selectable": true,
+    "direction": "rtl"
+  },
+  {
+    "locale": "nl_BE",
+    "name": "Dutch (Belgium)",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "pl_PL",
+    "name": "Polish",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "pt_BR",
+    "name": "Portuguese (Brazilian)",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "ro_RO",
+    "name": "Romanian",
+    "selectable": false,
+    "direction": "ltr"
+  },
+  {
+    "locale": "ru_RU",
+    "name": "Russian",
+    "selectable": true,
+    "direction": "ltr"
+  },
+  {
+    "locale": "uk_UA",
+    "name": "Ukrainian",
+    "selectable": true,
+    "direction": "ltr"
+  },
+  {
+    "locale": "zh_CHS",
+    "name": "Chinese (Simplified)",
+    "selectable": true,
+    "direction": "ltr"
+  },
+  {
+    "locale": "zh_CHT",
+    "name": "Chinese (Traditional)",
+    "selectable": true,
+    "direction": "ltr"
+  }
+]

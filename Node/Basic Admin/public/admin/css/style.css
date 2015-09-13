@@ -1,0 +1,53 @@
+/* Generic stuff here at the top */
+
+body {
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+
+pre {
+  background-color: #F0F0F0;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+/* Vendor overrides */
+
+.hljs-string {
+  color: #E2132B;
+}
+
+.hljs-attribute {
+  color: #096497;
+}
+
+.hljs-literal {
+  color: #719531;
+}
+
+/* Bootstrap overrides */
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+/* UI Components */
+
+.loader {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-image: url(../img/loader.gif);
+  background-size: cover;
+}
+
+td .loader {
+  width: 10px;
+  height: 10px;
+}
+
+.navigation {
+  text-align: center;
+}

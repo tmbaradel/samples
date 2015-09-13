@@ -1,0 +1,30 @@
+html.full-screen, html.full-screen body {
+  background: #0050C6;
+}
+
+html.full-screen {
+  color: #FFF;
+}
+
+body {
+  padding: 50px;
+  font: 14px Helvetica, Arial, sans-serif;
+}
+
+html.full-screen h1, html.full-screen h2 {
+  text-align: center;
+}
+
+h2 {
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+pre {
+  opacity: 0.5;
+  white-space: pre-wrap;
+}

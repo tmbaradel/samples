@@ -1,0 +1,8 @@
+{
+  "webhost": {
+    "login": "login/credentials"
+  },
+  "api": {
+    "trials": "v1/api"
+  }
+}

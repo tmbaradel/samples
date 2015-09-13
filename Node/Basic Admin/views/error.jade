@@ -1,0 +1,11 @@
+doctype html
+html(class=(className || ''))
+  head
+    title= title
+    link(rel='stylesheet', href='/css/error.css')
+  body
+    h1= message
+    if error.description
+      h2= error.description
+    if error.stack
+      pre=error.stack
