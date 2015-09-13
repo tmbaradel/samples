@@ -1,0 +1,23 @@
+/*
+
+Gradient
+========
+
+Renders vertical, linear gradients as a background-image.
+Begins the render at the top/left of the element.
+
+Usage: `.container { @include gradient(#FFF, #000); }`
+
+*/
+@mixin gradient($from, $to, $transparent: false) {
+  @if $transparent == false {
+    background-color: $to;
+  }
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image:    -moz-linear-gradient(top, $from, $to);
+  background-image:     -ms-linear-gradient(top, $from, $to);
+  background-image:      -o-linear-gradient(top, $from, $to);
+  background-image:         linear-gradient(top, $from, $to);
+  background-repeat: no-repeat;
+}

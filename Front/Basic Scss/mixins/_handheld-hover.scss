@@ -1,0 +1,27 @@
+/*
+
+Handheld Hover
+==============
+
+The mixin sets the hover and focus states of a selector
+at the desktop-only breakpoint, and an active state for all
+breakpoints. It assumes that all states are styled the same.
+
+Use if you encounter a "sticky" hover state on a mobile device.
+
+Usage: `.element { @include hover { text-decoration: underline; }; }`
+
+*/
+
+@mixin handheld-hover {
+  &:active {
+    @content;
+  }
+
+  @include at($desktop-min) {
+    &:hover,
+    &:focus {
+      @content;
+    }
+  }
+}

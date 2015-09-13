@@ -1,0 +1,76 @@
+/*
+
+Media Query
+===========
+
+Creates a media query breakpoint between two defined width values,
+and includes a subset of styles when the query matches. `$width`
+can be defined as either a single pixel value, or a range.
+
+Range values can also take `above` or `below`, which will trigger
+a `min-width` or `max-width` expression. These named range values
+can be inserted either before or after a pixel value.
+
+Using `above` will increase the value provided by 1px, whilst
+`below` will decrease it by 1px.
+
+This will output a media query with both min-width and max-width:
+- `at(600px 800px)`
+
+Both will output a media query with max-width: 399px:
+- `at(below 400px)`
+- `at(400px below)`
+
+All three will output a media query with min-width: 401px:
+- `at(above 400px)`
+- `at(400px above)`
+- `at(400px)`
+
+Example of usage:
+
+```
+.main-content {
+  @include at(below 500px) { font-size: 13px; }
+  @include at(500px 800px) { font-size: 14px; }
+  @include at(above 800px) { font-size: 15px; }
+}
+```
+
+*/
+@mixin at($query) {
+
+  // min-width if only one value supplied
+  @if length($query) == 1 { $query: append($query, above); }
+
+  // Mapping list values
+  $a: nth($query, 1);
+  $b: nth($query, 2);
+
+  // Defaults
+  $below: false;
+  $above: false;
+
+  // Determine if max/min width, in either 0 or 1 position
+  @if $a == 'below' { $below: $b; }
+  @if $b == 'below' { $below: $a; }
+  @if $a == 'above' { $above: $b; }
+  @if $b == 'above' { $above: $a; }
+
+  // Output finished media queries determined by conditions
+  @if $below != false {
+    @media screen and (max-width: $below - 1px) { @content; }
+  }
+  @elseif $above != false {
+    @media screen and (min-width: $above + 1px) { @content; }
+  }
+  @else {
+    @media screen and (min-width: $a) and (max-width: $b) { @content; }
+  }
+
+}
+
+@mixin ms-only() {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}

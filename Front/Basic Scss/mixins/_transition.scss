@@ -1,0 +1,38 @@
+/*
+
+Transition
+==========
+
+This mixin provides vendor-prefixed CSS transitions,
+and provides a mechanism to set property-prefixes on
+`transforms`, `background-clip` and `background-size`
+
+Usage: `.container { @include transition(transform 2s, background .2s); }`
+
+*/
+
+@function prefix($rules, $vendor) {
+  $prefixed-properties: transform, background-clip, background-size;
+  $updated-rules: ();
+
+  @each $rule in $rules {
+
+    // Check if rule requires prefixing
+    @if index($prefixed-properties, nth($rule, 1)) {
+      $prefixed-rule: -#{$vendor}-#{$rule};
+      $updated-rules: append($updated-rules, $prefixed-rule, comma);
+    }
+    @else {
+      $updated-rules: append($updated-rules, $rule, comma);
+    }
+  }
+
+  @return $updated-rules;
+}
+
+@mixin transition($rules...) {
+  -webkit-transition: prefix($rules, webkit);
+     -moz-transition: prefix($rules, moz);
+       -o-transition: prefix($rules, o);
+          transition: $rules;
+}

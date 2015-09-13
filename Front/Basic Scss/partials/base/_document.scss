@@ -1,0 +1,120 @@
+/*
+
+Document
+========
+
+Define document-wide base styles, trigger the display property on HTML5
+elements, ensure basic typography is adhered to.
+
+This file also doubles up as a compact, consistent 'reset' stylesheet to
+prevent unnecessary repetition, incorporating the normalize.css styling.
+
+*/
+
+// Make sure HTML5 elements play nice
+header, footer, article, aside, hgroup,
+details, summary, figure, figcaption,
+main, nav, section { display: block }
+audio, canvas, video { display: inline-block }
+
+// Remove margins, border, and padding from
+// main document elements just in case
+html, body { margin: 0; padding: 0; border: 0; }
+
+// Set basic document formatting
+html {
+  height: 100%;
+  font-size: 62.5%; // 1rem = 10px
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+}
+
+// Give ourselves a nicer box model
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// Ensure document height inherits correctly
+body { min-height: 100%; }
+
+// Links
+a {
+  // Base setting
+  color: $color-secondary-medium;
+  text-decoration: none;
+  background: transparent;
+  outline: 0;
+  // States
+  &:active { color: $color-secondary-medium; }
+  &:hover { color: $color-secondary-medium; }
+  &:focus { color: $color-secondary-medium; }
+  &:hover, &:focus, &:active {
+    text-decoration: underline;
+  }
+}
+
+// Interactive application elements
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+  cursor: pointer;
+}
+
+// Inline elements
+b, strong { font-weight: 500; }
+i, em, dfn, abbr { font-style: italic; }
+code, kbd, pre, samp { font-family: monospace; }
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+// Preformatted text
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+// Tables
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption, th, td {
+  text-align: $left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+// Image handling
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+figure { margin: 0; }
+svg:not(:root) { overflow: hidden; }
+
+// Consistent sub/sup
+sub, sup {
+  font-size: 70%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+// Consistent buttons on mobile devices
+button, input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+// General classes for js-only / non-js-only elements
+.js .no-js-only {
+  display: none;
+}
+
+.no-js .js-only {
+  display: none;
+}

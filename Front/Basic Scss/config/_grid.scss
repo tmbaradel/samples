@@ -1,0 +1,123 @@
+/*
+
+Grid
+====
+
+Small and simple, but flexible, grid system using percentages. Does
+not allow for nesting, but also should not need to.
+
+Variables:
+- `$grid-columns`: Number of columns all grids should contain
+- `$grid-gutters`: Width (%) of column gutters either side
+- `$grid-outside`: Boolean, should gutters render on outside edges
+
+Extend:
+- `@extend %grid;` on elements that should contain columns
+- `@extend %column;` on elements to render them as columns
+
+Functions:
+- `width: columns(4);` spans width of this element across 4 columns
+- `margin-left: indent(2);` indents this element 2 columns from the left
+
+Example usage:
+
+```
+$grid-columns: 12;
+$grid-gutters: 1%;
+$grid-outside: true;
+
+.template {
+  @extend %grid;
+  .menu {
+    @extend %column;
+    width: columns(3);
+  }
+  .content {
+    @extend %column;
+    width: columns(8);
+    margin-left: indent(1);
+  }
+}
+```
+
+*/
+
+$grid-columns: 16;
+$grid-gutters: 1%;
+$grid-outside: false;
+
+%grid-row {
+  @extend %clearfix;
+  position: relative;
+}
+%grid-column {
+  float: $left;
+
+  @if $grid-outside == false {
+    @include direction(ltr) {
+      margin-left: 0;
+      margin-right: $grid-gutters * 2;
+      &:last-child { margin-right: 0; }
+    }
+
+    @include direction(rtl) {
+      margin-left: $grid-gutters * 2;
+      margin-right: 0;
+      &:first-child { margin-left: 0; }
+    }
+
+  }
+  @if $grid-outside == true {
+    margin-left: $grid-gutters;
+    margin-right: $grid-gutters;
+  }
+}
+
+@function columns($n) {
+  @if $grid-outside == false {
+    @return ((102% / $grid-columns) * $n) - (2 * $grid-gutters);
+  }
+  @if $grid-outside == true {
+    @return ((100% / $grid-columns) * $n) - (2 * $grid-gutters);
+  }
+}
+@function indent($n) {
+  @if $grid-outside == false {
+    @return (columns($n) + (2 * $grid-gutters));
+  }
+  @if $grid-outside == true {
+    @return (columns($n) + (3 * $grid-gutters));
+  }
+}
+
+/*
+
+Helper classes
+--------------
+
+- `.grid-row` applies grid properties to this element
+- `.grid-column-x` from 1 to $grid-columns, sets width as x columns wide
+- `.grid-push-x` from 1 to $grid-columns, pushes after x columns from left
+- `.grid-pull-x` from 1 to $grid-columns, pulls this x columns to the right
+
+Example Usage:
+
+```
+<article class="grid-row">
+  <nav class="grid-column-4 grid-push-1"></nav>
+  <section class="grid-column-7"></section>
+  <aside> class="grid-column-4"></aside>
+</article>
+```
+
+*/
+
+.grid-row { @extend %grid-row; }
+@for $i from 1 through $grid-columns {
+  .grid-column-#{$i} {
+    @extend %grid-column;
+    width: columns($i);
+  }
+  .grid-push-#{$i} { margin-right: indent($i); }
+  .grid-pull-#{$i} { margin-left: indent($i); }
+}

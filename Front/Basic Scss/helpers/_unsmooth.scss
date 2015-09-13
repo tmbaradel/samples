@@ -1,0 +1,21 @@
+/*
+
+Unsmooth
+========
+
+Disable default browser image smoothing, use in the event that
+images are rendering poorly
+
+http://stackoverflow.com/questions/14068103/disable-antialising-when-scaling-images
+
+Usage: `.element { @extend %unsmooth; }`
+
+*/
+%unsmooth {
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+}

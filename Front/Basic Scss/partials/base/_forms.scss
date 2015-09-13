@@ -1,0 +1,212 @@
+/*
+
+Forms
+==========
+
+```
+<form>
+  <fieldset>
+    <div class="field with-icon icon-email-field">
+      <input type="email" name="email"/>
+    </div>
+    <div class="field center">
+      <input type="checkbox" name="remember_me"/>
+      <label>Remember me</label>
+    </div>
+    <div class="field">
+      <input type="submit" value="Log in" />
+    </div>
+  </fieldset>
+</form>
+```
+
+*/
+form {
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .field {
+    @extend %clearfix;
+    position: relative;
+    margin: 2.5rem 0;
+    vertical-align: middle;
+
+    &.center {
+      text-align: center;
+    }
+
+    &.narrow {
+      margin: 0.65rem 0;
+    }
+
+    &.narrow-bottom {
+      margin-bottom: 1rem;
+    }
+
+    &.bordered {
+      border-bottom: 1px solid $color-secondary-light;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    // Optional icon
+    &[class*=' icon-']:before {
+      position: absolute;
+      #{$left}: 15px;
+      top: 50%;
+      margin-top: -7px;
+      color: $color-primary-medium;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      display: block;
+      width: 100%;
+
+      // Typography
+      @include font-size(1.5rem);
+
+      // Appareance
+      border: 1px solid $color-primary-medium;
+      border-radius: 0;
+      border-#{$left}-width: 6px;
+      text-align: center;
+
+      // Left padding is slightly less than right one to match with the border
+      padding: sides(1.2rem 4rem 1.2rem 3.6rem);
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &.with-error {
+      @include icon('incorrect-field');
+
+      &:before {
+        color: #FFF;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        border-color: $color-tertiary-medium;
+        border-#{$left}-width: 45px;
+        padding-#{$left}: 0rem;
+      }
+    }
+
+    input[type="checkbox"] {
+      display: inline-block;
+
+      & + label {
+        // Typography
+        @extend %font-family-brand;
+        @include font-size(1.4rem);
+        color: $color-primary-medium;
+        margin-#{$left}: 3px;
+
+        &:hover {
+          cursor: pointer;
+          color: darken($color-primary-medium, 10%);
+        }
+      }
+    }
+
+    select {
+      // Typography
+      @extend %font-family-brand;
+      @include font-size(1.5rem);
+      font-weight: 300;
+
+      // Appareance
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: #FFF;
+      border: 1px solid $color-primary-medium;
+      border-radius: 4px;
+      padding: sides(0 4rem 0 1.3rem);
+      line-height: 4.5rem;
+
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: $color-tertiary-medium;
+        color: $color-tertiary-medium;
+        cursor: pointer;
+        outline: none;
+
+        & + .icon-arrow-dropdown {
+          color: $color-tertiary-medium;
+        }
+      }
+
+      &.ie-select {
+        // weird properties for IE11
+        @include ms-only {
+          padding: 0;
+          margin: 0;
+          border: 0;
+          border: none;
+          border: 1px inset #F0F0F0;
+        }
+      }
+    }
+
+    .icon-arrow-dropdown {
+      color: $color-primary-medium;
+      position: absolute;
+
+      top: 1.6rem;
+      pointer-events: none;
+
+      #{$right}: 1.3rem;
+
+      @include ms-only {
+        display: none;
+      }
+    }
+
+    .link {
+      @extend %font-family-brand;
+      @include font-size(1.3rem);
+      color: $color-tertiary-medium;
+    }
+
+    .button-submit {
+      @extend .button;
+      @extend .button.block;
+
+      & + .button-submit {
+        margin-top: 0.5rem;
+      }
+
+      &.inactive {
+        background-color: $color-secondary-light;
+        color: #FFF;
+        cursor: auto;
+      }
+    }
+  }
+
+  .error {
+    text-align: center;
+    color: $color-tertiary-medium;
+    margin-bottom: 1rem;
+
+    + .field {
+      margin-top: 0;
+    }
+  }
+}

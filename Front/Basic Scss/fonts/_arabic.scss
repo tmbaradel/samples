@@ -1,0 +1,16 @@
+// Source imports for typefaces
+@font-face {
+  font-family: 'Noto Naskh Arabic';
+  src: url('NotoNaskhArabicRegular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+// Base font families
+%font-family-brand {
+  font-family: 'Noto Naskh Arabic', sans-serif;
+}
+
+%font-family-body {
+  font-family: 'Noto Naskh Arabic', sans-serif;
+}

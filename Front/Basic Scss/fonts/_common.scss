@@ -1,0 +1,18 @@
+// Source imports for typefaces
+@font-face {
+  font-family: 'Icons';
+  font-weight: normal;
+  font-style: normal;
+}
+
+%font-style-icon {
+  speak: none;
+  line-height: 1;
+  font-family: 'Icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

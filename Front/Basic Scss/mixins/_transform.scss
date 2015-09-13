@@ -1,0 +1,18 @@
+/*
+
+Transform
+=========
+
+This mixin provides basic cross-browser CSS transforms
+
+Usage: `.container { @include transform(rotate(45deg)); }`
+
+*/
+
+@mixin transform($rule) {
+    -webkit-transform: $rule;
+       -moz-transform: $rule;
+        -ms-transform: $rule;
+         -o-transform: $rule;
+            transform: $rule;
+}

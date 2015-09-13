@@ -1,0 +1,18 @@
+/*
+
+Font-size mixin
+---------------
+
+Mixin to automatically adjust font-sizes based on locale rules.
+Replace `font-size:` declarations with this in future, when using
+declaring text sizes :-(
+
+*/
+@mixin font-size($size) {
+  @if variable-exists(font-adjustment-enabled) and variable-exists(font-adjustment-size)  {
+    font-size: $size + $font-adjustment-size;
+  }
+  @else {
+    font-size: $size;
+  }
+}

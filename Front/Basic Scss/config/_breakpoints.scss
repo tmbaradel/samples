@@ -1,0 +1,32 @@
+/*
+
+Responsive Breakpoints
+======================
+
+Examples:
+
+```
+@include at($below-handheld) { ... }
+@include at($handheld-only) { ... }
+@include at($above-handheld) { ... }
+```
+
+*/
+
+// "Handheld" screen widths
+$handheld-min: 320px;
+$handheld-med: 768px;
+$handheld-max: 1023px;
+
+// "Desktop" screen widths
+$desktop-min: 1024px;
+$desktop-med: 1440px;
+$desktop-max: 1920px;
+
+// Semantic ranges
+$handheld-only: $handheld-min $handheld-max;
+$desktop-only: $desktop-min $desktop-max;
+$above-handheld: 'above' $handheld-max;
+$above-desktop: 'above' $desktop-max;
+$below-handheld: 'below' $handheld-min;
+$below-desktop: 'below' $desktop-min;
