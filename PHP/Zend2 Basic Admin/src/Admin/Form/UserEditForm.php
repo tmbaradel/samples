@@ -9,18 +9,18 @@ class UserEditForm extends Form
 {
     public function __construct($name = null, $fields, $modules = null)
     {
-    	
+
     	parent::__construct($name);
     	$this->setAttribute('method', 'post');
-        
-    	
-    	
+
+
+
     	foreach($fields as $field_name =>$field){
 	        switch($field_name){
 	        	case 'id':
 		        	$this->add(array(
 			            'name' => $field_name,
-			            'value'  =>$field,	
+			            'value'  =>$field,
 			            'attributes' => array(
 			                'type'  => "hidden",
 			            ),
@@ -29,7 +29,7 @@ class UserEditForm extends Form
 			            ),
 			        ));
 	        	break;
-	        	case 'password':
+            case 'password':
 	        		$this->add(array(
 	        				'name' => $field_name,
 	        				'attributes' => array(
@@ -53,7 +53,7 @@ class UserEditForm extends Form
 			                'value_options' => $all_mods,
 			            	),
 			            	'attributes' =>$this->getModuleToCheck(json_decode($field))
-			            	
+
 	        			));
 		        	}
 	        	break;
@@ -82,7 +82,7 @@ class UserEditForm extends Form
     			),
     	));
     }
-    
+
     protected function getModuleToCheck($userModules)
     {
     	$ret["value"] = array();
@@ -93,6 +93,6 @@ class UserEditForm extends Form
 	    	}
 	    	$ret["value"] = $ret_array;
     	}
-    	return $ret;	
+    	return $ret;
     }
 }

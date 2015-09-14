@@ -7,22 +7,22 @@ class ContentEditForm extends Form
 {
     public function __construct($name = null,$fields)
     {
-    	
+
     	parent::__construct($name);
     	$this->setAttribute('method', 'post');
-        
-    	
-    	
+
+
+
     	foreach($fields as $field_name =>$field){
 	        switch($field_name){
 	        	case 'id':
 		        	$this->add(array(
 			            'name' => $field_name,
-			            'value'  =>$field,	
+			            'value'  =>$field,
 			            'attributes' => array(
 			                'type'  => "hidden",
 			                'id'	=>"id_".$field_name,
-			                 
+
 			            ),
 			        ));
 	        	break;
@@ -34,9 +34,9 @@ class ContentEditForm extends Form
 	        						'type'  => "text",
 	        						'id'	=>"id_".$field_name,
 	        				),
-	        				
+
 	        		));
-	        	break;	
+	        	break;
 	        	case 'content':
 	        		$this->add(array(
 	        				'name' => $field_name,
@@ -46,7 +46,7 @@ class ContentEditForm extends Form
 	        						'id'	=>"id_".$field_name,
 	        						'class' =>'txt_area'
 	        				)
-	        				
+
 	        		));
 	        	break;
 	        	case 'author':
@@ -72,7 +72,7 @@ class ContentEditForm extends Form
     					'id' => 'submitbutton',
     			),
     	));
-    	
-    	
+
+
     }
 }
