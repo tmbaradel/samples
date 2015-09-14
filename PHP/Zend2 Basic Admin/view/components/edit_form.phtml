@@ -1,0 +1,28 @@
+<?php
+
+use Zend\Form\View\Helper\FormRow;
+
+$form = $this->form;
+$form->setAttribute('action',"" );
+$form->prepare();
+
+?>
+
+	<article class="module width_full">
+		<header><h3><?php echo $this->module_name;?></h3></header>
+		<div class="module_content">
+			    <?php echo $this->form()->openTag($form);?>
+        		<?php foreach($form->getElements() as $element): 
+        			  $type= $element->getAttribute("type");	
+        			  if($type!="hidden" && $type!="submit"):?>
+        			<fieldset>
+        			<label><?php echo ucfirst(str_replace("_"," ", $element->getName()))?></label><br/>
+        			<?php endif;?>
+        			<?php echo $this->formRow($element);?>
+        			<?php if($type!="hidden" && $type!="submit"):?>
+        			</fieldset>
+        			<?php endif?>
+        		<?php endforeach;?>
+        		<?php echo $this->form()->closeTag();?>
+		</div>
+	</article>

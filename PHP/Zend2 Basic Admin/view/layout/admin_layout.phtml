@@ -1,0 +1,82 @@
+<?php echo $this->doctype(); ?>
+<html>
+    <head>
+         <?php echo $this->headTitle('Blog Admin')->setAutoEscape(false) ?>
+
+         <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+         <?php echo $this->headLink()->prependStylesheet($this->basePath() . '/css/admin/layout.css')?>
+		 
+		 <?php echo $this->headLink()->prependStylesheet($this->basePath() . '/js/CLEditor/jquery.cleditor.css')?>
+    </head>
+    <body>
+       
+        <header id="header">
+		<hgroup>
+			<h1 class="site_title"><a href="index.html">Site Admin</a></h1>
+                        <?php if(isset($this->logged)):?>
+			<h2 class="section_title"></h2><div class="btn_view_site"><a href="/admin/logout">Logout</a></div>
+                        <?php endif;?>
+                </hgroup>
+	</header> <!-- end of header bar -->
+	<?php if(isset($this->logged)):?>
+	<section id="secondary_bar">
+		<div class="user">
+			<p><?php echo ucfirst($this->username)?> </p>
+		</div>
+		<div class="breadcrumbs_container">
+			<article class="breadcrumbs">
+				<a href="/admin">Website Admin</a>
+				<?php if(isset($this->breadcrumbs)):?>
+				<?php 
+				foreach ($this->breadcrumbs as $key=>$brd){?>
+				<div class="breadcrumb_divider"></div>
+				<a <?php if($brd["class"]!=""):?>class="current" <?php endif?>
+				   <?php if($brd["href"]!=""):?> href = "<?php echo $brd["href"]?>"<?php endif?>>    	
+				<?php echo ucfirst(str_replace("_"," ",$key)); ?></a>
+				<?php } endif;?>
+			</article>
+		</div>
+	</section>
+	<?php endif?>
+	
+	<?php if(isset($this->logged)):?>
+	
+	<aside id="sidebar" class="column">
+		<form class="quick_search">
+			<input type="text" value="Quick Search" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+		</form>
+		<hr/>
+		<?php foreach($this->user_modules as $module): ?>
+			<h3><?php echo ucfirst($module->name)?></h3>
+			<ul class="toggle">
+				<?php foreach(json_decode($module->sections,true) as $section=>$class):?>
+				<li class="<?php echo $class ?>">
+					<a href="/<?php echo $module->name?>admin/<?php echo strtolower(str_replace("_","",$section))?>"><?php echo ucfirst(str_replace("_"," ",$section))?></a>
+				</li>
+				<?php  endforeach ?>
+			</ul>
+		<?php endforeach;?>
+		<footer>
+			<hr />
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png" /></a><br />
+		</footer>
+	</aside><!-- end of sidebar -->
+	<?php endif;?>
+	
+		
+	
+	<?php echo $this->content; ?>
+	
+	
+	<?php echo $this->headScript()->prependFile($this->basePath() . '/js/admin/hideshow.js')
+									   ->prependFile($this->basePath() . '/js/CLEditor/jquery.cleditor.xhtml.min.js')
+									   ->prependFile($this->basePath() . '/js/CLEditor/jquery.cleditor.min.js')
+									   ->prependFile($this->basePath() . '/js/admin/jquery.equalHeight.js') 
+         							   ->prependFile($this->basePath() . '/js/admin/jquery.tablesorter.min.js') 
+         							   ->prependFile($this->basePath() . '/js/admin/main.js')
+         							   ->prependFile('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+        							   ?>
+        							   
+    </body>
+</html>    

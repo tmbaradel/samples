@@ -1,0 +1,16 @@
+<?php
+$form = $this->form;
+$form->setAttribute('action',"" );
+$form->prepare();
+
+?>
+<section id="content">
+    <div id ="form_cnt">
+        <?php echo $this->form()->openTag($form);?>
+        <div><?php echo $this->formRow($form->get('username'));?></div>
+        <div><?php echo $this->formRow($form->get('password'));?></div>
+        <div><?php echo $this->formSubmit($form->get('submit'));?></div>
+        <?php echo $this->form()->closeTag();?>
+    </div>
+    <div class="error_msg"><?php if(isset($this->error_msg)) echo $this->error_msg;?></div> 
+<section>
