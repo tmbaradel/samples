@@ -1,0 +1,117 @@
+                <div id="page_header">
+                    <h2><span>Register</span></h2>
+					
+					<p class="registertext">Register your details to win tickets to the Behind the Hit Gig on April 5</P>
+					<span class="car_banner"><img src="<?php echo $this->baseUrl(); ?>/skin/frontend/assets/images/car.png" alt="favorite" /> </span>
+                    <p class="page_info"></p>
+                </div>
+                <form action="<?php echo $this->url(array(), 'register'); ?>" id="register" method="post">
+                <div class="form_wrapper">
+                        
+                         <?php if($this->form->getMessages()): ?>
+                            <div class="errors">
+                                <ul class="form-errors">
+                                    <?php foreach($this->form->getErrorMessagesList() as $message): ?>
+                                        <li><?php echo $message ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+                       <div class="form_bg">     
+                    <ul class="register_col_1">
+                        <li>
+                            <label>First name*</label>
+                            <div class="textinput">
+                                <?php echo $this->form->firstName; ?>
+                            </div>
+                        </li>
+                        <li>
+                            <label>Surname*</label>
+                            <div class="textinput">
+                                <?php echo $this->form->lastName; ?>
+                            </div>
+                        </li>
+                        <li class="reg_dob">
+                            <label for="reg_dob_day">Date of birth*</label>
+                            <div class="textinput">
+                            <?php echo $this->form->dob_day; ?>
+                            <?php echo $this->form->dob_month; ?>
+                            <?php echo $this->form->dob_year; ?>
+                            </div>
+                        </li>
+                        <li class="textinput">
+                            <label>Email*</label>
+                            <div class="textinput">
+                                <?php echo $this->form->email; ?>
+                            </div>
+                        </li>
+                        <li class="textinput">
+                            <label>Password*</label>
+                            <div class="textinput">
+                                <?php echo $this->form->password; ?>
+                            </div>
+                        </li>
+                        <li class="textinput">
+                            <label>Confirm Password*</label>
+                            <div class="textinput">
+                                <?php echo $this->form->confirmPassword; ?>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="register_col_2">
+                        <li>
+                            <label>Address*</label>
+                            <div class="textinput">
+                                <?php echo $this->form->address1; ?>
+                            </div>
+                        </li>
+                        <li>
+                            <label>Address 2</label>
+                            <div class="textinput">
+                                <?php echo $this->form->address2; ?>
+                            </div>
+                        </li>
+                        <li>
+                            <label>Town/City*</label>
+                            <div class="textinput">
+                                <?php echo $this->form->city; ?>
+                            </div>
+                        </li>
+                        <li class="zip">
+                            <label>Postcode*</label>
+                            <div class="textinput">
+                                <?php echo $this->form->zipcode; ?>
+                            </div>
+                        </li>
+                        <li class="zip">
+                            <label>Phone*</label>
+                            <div class="textinput">
+                                <?php echo $this->form->phone; ?>
+                            </div>
+                        </li>
+                        <li class="agreements">
+                            <?php echo $this->form->agree_conditions; ?>
+                            <label for="agree_conditions">I agree to the terms and conditions</label>
+                            <div class="clear"></div>
+                        </li>
+                        <li class="agreements">
+                            <?php echo $this->form->agree_contact_nissan; ?>
+                            <label for="agree_contact_nissan">I agree to be contacted by Nissan GB </label>
+                            <div class="clear"></div>
+                        </li>
+                        <li class="agreements">
+                            <?php echo $this->form->agree_contact_thirdparty; ?>
+                            <label for="agree_contact_thirdparty">I agree to be contacted regarding other third party products</label>
+                            <div class="clear"></div>
+                        </li>
+                    </ul>
+                    
+                    <div class="clear"></div>
+                    <div class="req_indicator">(*) required fields</div>
+                    <fieldset>
+                        <button type="submit" id="reg_submit"></button>
+                    </fieldset>
+                    <div class="clear"></div>
+                </div><!-- closes form bg -->
+           </div>
+           </form>

@@ -1,0 +1,58 @@
+                    <div id="page_header">
+                        
+                        
+                    </div>
+                    <form action="<?php echo $this->url(array(), 'login'); ?>" id="register" method="post">
+					<div class="form_bg">                       
+					
+                            
+                            <?php if ($this->successMessages):?>
+                                <div class="errors">
+                                    <ul class="form-errors">
+                                <?php foreach($this->successMessages as $message): ?>
+                                    <li><?php echo $message ?></li>
+                                <?php endforeach; ?>
+                                    </ul>
+                                </div>      
+                            <?php endif; ?>
+                            
+                            <?php if($this->messages): ?>
+                                <div class="errors">
+                                <ul class="form-errors">
+                                    <?php foreach($this->messages as $message): ?>
+                                        <li><?php echo $message ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                                </div>
+                            <?php endif; ?>
+					   <div class="form_wrapper_left">		
+                        <ul>
+                            <li class="textinput">
+                                <label>Email*</label>
+                                <div class="textinput">
+                                    <?php echo $this->form->login_email; ?>
+                                </div>
+                            </li>
+                            <li class="textinput">
+                                <label>Password*</label>
+                                <div class="textinput">
+                                    <?php echo $this->form->login_password; ?>
+                                </div>
+                            </li>
+                        </ul>
+						</div>  <!-- closes form wrapper  -->
+                        <div class="form_wrapper_right">   
+                            <fieldset>
+                               <ul>
+							   
+										<li><button type="submit" id="reg_submit"></button> </li>
+										<li><a href="<?php echo $this->baseUrl()?>/register" class="login_register">Register	</a></li>
+									<li class="forgotten_password"><a  href="<?php echo $this->baseUrl()?>/forgot-password">Forgotten Password</a></li>
+								
+                            </fieldset>
+                           
+                        </div><!-- closes form wrapper  -->
+                        </div><!-- closes form bg -->
+                       
+                </form>
+                
